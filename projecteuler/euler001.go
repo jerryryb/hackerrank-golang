@@ -6,14 +6,21 @@ func main() {
     fmt.Scanf("%d", &t)
     for t > 0{
         t--
-        var n int
+        var n int64
         fmt.Scanf("%d", &n)
-        var result int = 0
-        for i := 0; i < n; i++ {
-            if i % 3 == 0 || i % 5 == 0{
-                result += i
-            }
-        }
-        fmt.Printf("%d\n", result)
+        
+        a := (n-1) % 3 
+        a = n - 1 - a 
+        a = a / 3
+        
+        b := (n-1) % 5 
+        b = n - 1 - b 
+        b = b / 5
+        
+        d := (n-1) % 15 
+        d = n - 1 - d 
+        d = d/15; 
+        var sum int64 = 3*a*(a+1)/2 + 5*b*(b+1)/2 - 15*d*(d+1)/2
+        fmt.Printf("%d\n", sum)
     }
 }
