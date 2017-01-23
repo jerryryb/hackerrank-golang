@@ -1,31 +1,37 @@
 package main
-import "fmt"
+import ("fmt"
+        "math"
+)
 
-func largest_prime_factor(n int64) (largest_factor int64) {
-    largest_factor = int64(1)
- 
-    // remove any factors of 2 first
+func largest_prime_factor(n int64) (ans int64) {
     for n % 2 == 0 {
-        largest_factor = 2
-        n /= 2
+      n /= 2
     }
     
-    // now look at odd factors
-    p := int64(3)
-    for n != 1 {
-        for n % p == 0 {
-            largest_factor = p
-            n /= p
-        }
-        p += 2
+    if n == 1 {
+        ans = 2
+        return
     }
-    return largest_factor
+    
+    var i int64
+    for i = 3; i <= int64(math.Floor(math.Sqrt(float64(n)))); i = i + 2 {
+        for n % i == 0 {
+            n /= i
+        }
+    }
+    
+    if n > 2 {
+        ans = n
+    }else{
+        ans = i - 2
+    }
+    return ans
 }
 
 func main() {
     var t int
     fmt.Scanf("%d", &t)
-    for t > 0{
+    for t > 0 {
         t--
         var n int64
         fmt.Scanf("%d", &n)
