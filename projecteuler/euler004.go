@@ -23,9 +23,9 @@ func main() {
         fmt.Scanf("%d", &n)
         var max_palindrom int = 0
         for i := 100; i < 1000; i++ {
-            for j := 100; j < 1000; j++{
+            for j := 100; j < 1000; j++ {
                 var res int = i*j
-                if res > n {
+                if res >= n {
                     break
                 }
                 if res > max_palindrom && ispalindrom(res) {
