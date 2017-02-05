@@ -13,6 +13,9 @@ func generatePrimes(n int64, primes []int64) []int64 {
 				prime = false
 				break
 			}
+            if elem * elem >= counter {
+				break
+			}
 		}
 		if prime {
 			primes = append(primes, counter)
