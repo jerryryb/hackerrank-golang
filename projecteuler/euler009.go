@@ -14,15 +14,15 @@ func main() {
                 if a + b > n {
                     break
                 }
-                for c := b+1; c < n; c++ {
-                    if a + b + c > n {
-                        break
-                    }
-                    
-                    if a + b + c == n {
-                        if a*a + b*b == c*c {
-                            result = a * b * c
-                        }
+
+                c := n - a - b
+
+                if a + b + c > n {
+                    break
+                }
+                if a + b + c == n {
+                    if a*a + b*b == c*c {
+                        result = a * b * c
                     }
                 }
             }
